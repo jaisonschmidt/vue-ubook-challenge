@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
+@import '../icons/style.css';
+
+@import './reset';
+@import './atomic/buttons';
+@import './atomic/forms';
+
+body {
+  background: $bg-primary;
+  color: $cl-primary;
+  font-family: $ff-default;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 1em;
+}
+
+/*
+@include desktop {
+    background: green;
+  }
+*/

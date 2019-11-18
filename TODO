@@ -1,0 +1,16 @@
+criar os componentes:
+
+Header - logo e input search - ok
+
+ContactList - lista os contatos cadastrados ou exibe componente de sem contatos cadastrados
+- ContactNotFound - ok
+- ContactDataTable - ok
+
+ContactForm
+- novo contato, atualizar contato - ok
+
+ModalContact
+- Exibe o componente ContactForm no formato de modal
+
+ModalConfirmDelete
+- Modal que confirma deleção de registro
