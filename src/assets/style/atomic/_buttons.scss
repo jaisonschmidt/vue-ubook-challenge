@@ -27,7 +27,7 @@
     .icon__el {
       font-size: 1em;
     }
-  }  
+  }
 
   &.btn__link {
     color: $btn-primary-cl;
@@ -39,10 +39,8 @@
     border: solid 1px rgba(255, 255, 255, 0.16);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
     color: #ffffff;
-
     &[disabled] {
       opacity: 0.32;
     }
   }
-
 }

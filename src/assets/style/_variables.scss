@@ -8,16 +8,16 @@ $btn-primary-cl: #fa7268;
 $bdr-default: 1px solid #e1e1e1;
 $bdr-input: 1px solid #c0c3d2;
 
-$ff-default: 'Roboto', sans-serif;
+$ff-default: "Roboto", sans-serif;
 
 @mixin mobile {
-    @media only screen and (max-width: 991px) {
-        @content;
-    }
+  @media only screen and (max-width: 991px) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media only screen and (min-width: 992px) {
-        @content;
-    }
+  @media only screen and (min-width: 992px) {
+    @content;
+  }
 }

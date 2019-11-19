@@ -21,7 +21,9 @@ export default new Vuex.Store({
       state.contacts.push(payload)
     },
     updateContact (state, payload) {
-      const contact = state.contacts.find(contact => contact.key === payload.key)
+      const contact = state.contacts.find(
+        contact => contact.key === payload.key
+      )
       Object.assign(contact, payload)
     },
     deleteContact (state, payload) {

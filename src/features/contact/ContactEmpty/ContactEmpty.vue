@@ -3,7 +3,7 @@
 <template>
   <div class="contact-empty">
     <div>
-      <img src="@/assets/imgs/ic-book.svg" alt="Sem contatos">
+      <img src="@/assets/imgs/ic-book.svg" alt="Sem contatos" />
     </div>
     <div class="contact-empty__message">
       Nenhum contato foi criado ainda.

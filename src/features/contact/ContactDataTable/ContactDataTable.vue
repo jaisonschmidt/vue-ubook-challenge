@@ -10,26 +10,42 @@
         <div class="col-phone">Telefone</div>
         <div class="col-action"></div>
       </div>
-    </div><!-- .header -->
+    </div>
+    <!-- .header -->
     <div class="table-body" is="transition-group" name="list">
-      <div class="contact-item" v-for="(contact) in contacts" :key="contact.key">
+      <div class="contact-item" v-for="contact in contacts" :key="contact.key">
         <div class="col">
           <div class="col-initial">
-            <span class="letter" :class="`letter--${contact.name[0].toUpperCase()}`">{{contact.name[0]}}</span>
+            <span
+              class="letter"
+              :class="`letter--${contact.name[0].toUpperCase()}`"
+              >{{ contact.name[0] }}</span
+            >
           </div>
-          <div class="col-name">{{contact.name}}</div>
-          <div class="col-email">{{contact.email}}</div>
-          <div class="col-phone">{{contact.tel}}</div>
+          <div class="col-name">{{ contact.name }}</div>
+          <div class="col-email">{{ contact.email }}</div>
+          <div class="col-phone">{{ contact.tel }}</div>
           <div class="col-action">
-            <button type="button" class="btn__action" title="Editar contato" @click="() => handleClickUpdateContact(contact)">
+            <button
+              type="button"
+              class="btn__action"
+              title="Editar contato"
+              @click="() => handleClickUpdateContact(contact)"
+            >
               <span class="icon-ic-edit"></span>
             </button>
-            <button type="button" class="btn__action" title="Excluir contato" @click="() => handleClickDeleteContact(contact)">
+            <button
+              type="button"
+              class="btn__action"
+              title="Excluir contato"
+              @click="() => handleClickDeleteContact(contact)"
+            >
               <span class="icon-ic-delete"></span>
             </button>
           </div>
         </div>
-      </div><!-- .contact-item -->
+      </div>
+      <!-- .contact-item -->
     </div>
   </div>
 </template>
@@ -48,7 +64,10 @@ export default {
   computed: {
     contacts () {
       return this.$store.getters.contacts.filter(contact => {
-        return [contact.name, contact.email, contact.tel].join('|').toUpperCase().includes(this.$store.getters.filterText.toUpperCase())
+        return [contact.name, contact.email, contact.tel]
+          .join('|')
+          .toUpperCase()
+          .includes(this.$store.getters.filterText.toUpperCase())
       })
     }
   }

@@ -1,120 +1,143 @@
 .contact-data-table {
-    background: #ffffff;
-    border: $bdr-default;
-    @include border-radius(4px);
-    margin-top: 2em;
-    .col {
-        align-items: center;
-        display: flex;
-        @include mobile {
-            align-items: flex-start;
-            flex-direction: column;
-        }
+  background: #ffffff;
+  border: $bdr-default;
+  @include border-radius(4px);
+  margin-top: 2em;
+
+  .col {
+    align-items: center;
+    display: flex;
+
+    @include mobile {
+      align-items: flex-start;
+      flex-direction: column;
     }
-    .col-initial {
-        text-align: center;
-        width: 40px;
+  }
+
+  .col-initial {
+    text-align: center;
+    width: 40px;
+  }
+
+  .col-action {
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+    @include mobile {
+      align-self: flex-end;
     }
-    .col-action {
-        display: flex;
-        justify-content: space-between;
-        width: 70px;
-        @include mobile {
-            align-self: flex-end;
-        }
+  }
+
+  .col-name,
+  .col-email,
+  .col-phone {
+    width: 33%;
+
+    @include mobile {
+      padding: 0.5rem;
+      width: 100%;
+
+      &:empty {
+        display: none;
+      }
     }
-    .col-name,
-    .col-email,
-    .col-phone {
-        width: 33%;
-        @include mobile {
-            padding: 0.5rem;
-            width: 100%;
-            &:empty {
-                display: none;
-            }
-        }
+  }
+
+  .btn__action {
+    background: transparent;
+    border: transparent;
+    color: $cl-sec;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .header {
+    color: $cl-sec;
+    font-size: 0.8em;
+    padding: 1rem 1rem 0.5rem 0.5rem;
+
+    @include mobile {
+      display: none;
     }
-    .btn__action {
-        background: transparent;
-        border: transparent;
-        color: $cl-sec;
-        font-size: 1rem;
-        outline: none;
+  }
+
+  .contact-item {
+    border-top: $bdr-default;
+    font-size: 0.875em;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+
+    &:hover {
+      background-color: $bg-hover;
+      cursor: pointer;
     }
-    .header {
-        color: $cl-sec;
-        font-size: 0.8em;
-        padding: 1rem 1rem 0.5rem 0.5rem;
-        @include mobile {
-            display: none;
-        }
-    }
-    .contact-item {
-        border-top: $bdr-default;
-        font-size: 0.875em;
-        padding: 8px 16px 8px 8px;
-        &:hover {
-            background-color: $bg-hover;
-            cursor: pointer;
-        }
-    }
-    .list-enter-active {
-        transition: background 4s ease-in 6s;
-    }
-    .list-enter {
-        background-color: $bg-hover;
-    }
-    .letter {
-        align-items: center;
-        background-color: #90d26c;
-        @include border-radius(50%);
-        color: #ffffff;
-        display: inline-flex;
-        height: 1.5rem;
-        justify-content: center;
-        width: 1.5rem;
-    }
-    .letter--A,
-    .letter--I,
-    .letter--Q,
-    .letter--Y {
-        background-color: #fa8d68;
-    }
-    .letter--B,
-    .letter--J,
-    .letter--R,
-    .letter--Z {
-        background-color: #90d26c;
-    }
-    .letter--C,
-    .letter--K,
-    .letter--S {
-        background-color: #68a0fa;
-    }
-    .letter--D,
-    .letter--L,
-    .letter--T {
-        background-color: #fab668;
-    }
-    .letter--E,
-    .letter--M,
-    .letter--U {
-        background-color: #8368fa;
-    }
-    .letter--F,
-    .letter--N,
-    .letter--W {
-        background-color: #fa68b5;
-    }
-    .letter--G,
-    .letter--O,
-    .letter--V {
-        background-color: #5fe2c4;
-    }
-    .letter--H,
-    .letter--P,
-    .letter--X {
-        background-color: #f55a5a;
-    }
+  }
+
+  .list-enter-active {
+    transition: background 4s ease-in 6s;
+  }
+
+  .list-enter {
+    background-color: $bg-hover;
+  }
+
+  .letter {
+    align-items: center;
+    background-color: #90d26c;
+    @include border-radius(50%);
+    color: #ffffff;
+    display: inline-flex;
+    height: 1.5rem;
+    justify-content: center;
+    width: 1.5rem;
+  }
+
+  .letter--A,
+  .letter--I,
+  .letter--Q,
+  .letter--Y {
+    background-color: #fa8d68;
+  }
+
+  .letter--B,
+  .letter--J,
+  .letter--R,
+  .letter--Z {
+    background-color: #90d26c;
+  }
+
+  .letter--C,
+  .letter--K,
+  .letter--S {
+    background-color: #68a0fa;
+  }
+
+  .letter--D,
+  .letter--L,
+  .letter--T {
+    background-color: #fab668;
+  }
+
+  .letter--E,
+  .letter--M,
+  .letter--U {
+    background-color: #8368fa;
+  }
+
+  .letter--F,
+  .letter--N,
+  .letter--W {
+    background-color: #fa68b5;
+  }
+
+  .letter--G,
+  .letter--O,
+  .letter--V {
+    background-color: #5fe2c4;
+  }
+
+  .letter--H,
+  .letter--P,
+  .letter--X {
+    background-color: #f55a5a;
+  }
 }

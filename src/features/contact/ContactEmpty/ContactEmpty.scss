@@ -1,10 +1,10 @@
 .contact-empty {
-    padding-top: 112px;
-    text-align: center;
-    @include mobile {
-        padding-top: 56px;
-    }
-    &__message {
-        padding: 24px 0;
-    }
+  padding-top: 112px;
+  text-align: center;
+  @include mobile {
+    padding-top: 56px;
+  }
+  &__message {
+    padding: 24px 0;
+  }
 }

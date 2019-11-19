@@ -1,19 +1,39 @@
 <template>
   <div>
-    <Header v-bind:showBtnCreateContact="(contacts.length === 0) ? false : true" v-on:openModalNewContact="handleShowModalNewContact"  />
+    <Header
+      v-bind:showBtnCreateContact="contacts.length === 0 ? false : true"
+      v-on:openModalNewContact="handleShowModalNewContact"
+    />
     <!-- showed when not have contacts -->
-    <ContactEmpty v-if="contacts.length === 0" v-on:openModalNewContact="handleShowModalNewContact" />
+    <ContactEmpty
+      v-if="contacts.length === 0"
+      v-on:openModalNewContact="handleShowModalNewContact"
+    />
     <!-- showed when have contacts -->
-    <ContactDataTable v-on:openModalUpdateContact="handleShowModalUpdateContact" v-on:confirmDeleteContact="handleOpenConfirmDeleteContact" v-else />
+    <ContactDataTable
+      v-on:openModalUpdateContact="handleShowModalUpdateContact"
+      v-on:confirmDeleteContact="handleOpenConfirmDeleteContact"
+      v-else
+    />
 
-    <Modal v-bind:title="(actualContact.key === null) ? 'Criar novo contato' : 'Editar contato'" v-bind:show="showModalNewContact">
-      <ContactForm v-on:closeModalNewContact="handleHideModalNewContact" v-bind:contact="actualContact" />
+    <Modal
+      v-bind:title="
+        actualContact.key === null ? 'Criar novo contato' : 'Editar contato'
+      "
+      v-bind:show="showModalNewContact"
+    >
+      <ContactForm
+        v-on:closeModalNewContact="handleHideModalNewContact"
+        v-bind:contact="actualContact"
+      />
     </Modal>
 
     <Modal title="Excluir contato" v-bind:show="showModalConfirmDeleteContact">
-      <DeleteContact v-on:deleteContactCancel="handleDeleteContactCancel" v-on:deleteContactConfirm="handleDeleteContactConfirm" />
+      <DeleteContact
+        v-on:deleteContactCancel="handleDeleteContactCancel"
+        v-on:deleteContactConfirm="handleDeleteContactConfirm"
+      />
     </Modal>
-
   </div>
 </template>
 
