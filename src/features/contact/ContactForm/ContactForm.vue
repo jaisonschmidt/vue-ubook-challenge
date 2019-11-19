@@ -14,7 +14,7 @@
       </div>
       <div class="contact-form__line contact-form__line--tel">
         <label for="txtTel" class="contact-form__label">Telefone</label>
-        <input type="tel" id="txtTel" class="contact-form__input" v-model="currentUser.tel" maxlength="15">
+        <the-mask id="txtTel" class="contact-form__input" v-model="currentUser.tel" v-bind:masked="true" v-bind:type="tel" :mask="['(##) ####-####', '(##) #####-####']" maxlength="15" />
       </div>
     </div>
     <div class="form__action">
@@ -25,8 +25,13 @@
 </template>
 
 <script>
+import { TheMask } from 'vue-the-mask'
+
 export default {
   name: 'ContactForm',
+  components: {
+    TheMask
+  },
   props: {
     contact: Object
   },
@@ -47,6 +52,12 @@ export default {
       } else {
         this.$store.dispatch('updateContactAction', { ...this.currentUser })
       }
+
+      // melhorar a criacao de contato vario
+      this.currentUser.key = null
+      this.currentUser.name = ''
+      this.currentUser.email = ''
+      this.currentUser.tel = ''
 
       this.handleCloseModalContact()
     }

@@ -39,10 +39,11 @@
         padding: 8px 16px 8px 8px;
         &:hover {
             background-color: $bg-hover;
+            cursor: pointer;
         }
     }
     .list-enter-active {
-        transition: background 2s ease-in 8s;
+        transition: background 4s ease-in 6s;
     }
     .list-enter {
         background-color: $bg-hover;

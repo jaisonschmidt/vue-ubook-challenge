@@ -48,9 +48,6 @@ export default {
     actualContact: NEW_USER
   }),
   methods: {
-    getNewUser () {
-      return NEW_USER
-    },
     handleShowModalNewContact () {
       this.actualContact = NEW_USER
       this.showModalNewContact = true
