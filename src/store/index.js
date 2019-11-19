@@ -18,7 +18,8 @@ export default new Vuex.Store({
       state.contacts.push(payload)
     },
     updateContact (state, payload) {
-      state.contacts[payload.key] = payload
+      const contact = state.contacts.find(contact => contact.key === payload.key)
+      Object.assign(contact, payload)
     }
   },
   actions: {
