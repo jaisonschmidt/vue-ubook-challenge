@@ -4,8 +4,8 @@
       v-bind:showBtnCreateContact="contacts.length === 0 ? false : true"
       v-on:openModalNewContact="handleShowModalNewContact"
     />
-    <!-- showed when not have contacts -->
 
+    <!-- showed when not have contacts -->
     <ContactEmpty
       v-if="contacts.length === 0"
       v-on:openModalNewContact="handleShowModalNewContact"
