@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import { TheMask } from 'vue-the-mask';
+import { TheMask } from 'vue-the-mask'
 
 export default {
   name: 'ContactForm',
@@ -91,9 +91,9 @@ export default {
 
       // melhorar a criacao de contato vazio
       this.currentUser.key = null
-      this.currentUser.name = '';
-      this.currentUser.email = '';
-      this.currentUser.tel = '';
+      this.currentUser.name = ''
+      this.currentUser.email = ''
+      this.currentUser.tel = ''
 
       this.handleCloseModalContact()
     }
