@@ -51,6 +51,7 @@ export default {
     handleShowModalNewContact () {
       this.actualContact = NEW_USER
       this.showModalNewContact = true
+      this.$forceUpdate() // sometimes input tel don't render correctly
     },
     handleHideModalNewContact () {
       this.showModalNewContact = false
@@ -58,6 +59,7 @@ export default {
     handleShowModalUpdateContact (contact) {
       this.actualContact = contact
       this.showModalNewContact = true
+      this.$forceUpdate() // sometimes input tel don't render correctly
     },
     handleOpenConfirmDeleteContact (contact) {
       this.actualContact = contact
