@@ -30,10 +30,11 @@
           id="txtTel"
           class="contact-form__input"
           v-model="currentUser.tel"
-          v-bind:masked="true"
           type="tel"
-          :mask="['(##) ####-####', '(##) #####-####']"
           maxlength="15"
+          v-bind:masked="true"
+          :mask="['(##) ####-####', '(##) #####-####']"
+          :key="maskKey"
         />
       </div>
     </div>
@@ -71,9 +72,19 @@ export default {
   props: {
     contact: Object
   },
+  data: function () {
+    return {
+      maskKey: 0
+    }
+  },
   computed: {
     currentUser () {
       return this.contact
+    }
+  },
+  watch: {
+    contact: function (val) {
+      this.maskKey = this.maskKey + 1
     }
   },
   methods: {
