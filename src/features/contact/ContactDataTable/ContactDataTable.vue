@@ -11,7 +11,7 @@
         <div class="col-action"></div>
       </div>
     </div><!-- .header -->
-    <div is="transition-group" name="list">
+    <div class="table-body" is="transition-group" name="list">
       <div class="contact-item" v-for="(contact) in contacts" :key="contact.key">
         <div class="col">
           <div class="col-initial">

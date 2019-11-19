@@ -6,6 +6,10 @@
     .col {
         align-items: center;
         display: flex;
+        @include mobile {
+            align-items: flex-start;
+            flex-direction: column;
+        }
     }
     .col-initial {
         text-align: center;
@@ -15,11 +19,21 @@
         display: flex;
         justify-content: space-between;
         width: 70px;
+        @include mobile {
+            align-self: flex-end;
+        }
     }
     .col-name,
     .col-email,
     .col-phone {
         width: 33%;
+        @include mobile {
+            padding: 0.5rem;
+            width: 100%;
+            &:empty {
+                display: none;
+            }
+        }
     }
     .btn__action {
         background: transparent;
@@ -32,6 +46,9 @@
         color: $cl-sec;
         font-size: 0.8em;
         padding: 1rem 1rem 0.5rem 0.5rem;
+        @include mobile {
+            display: none;
+        }
     }
     .contact-item {
         border-top: $bdr-default;
