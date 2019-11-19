@@ -13,7 +13,7 @@
         <input type="email" id="txtEmail" class="contact-form__input" v-model="currentUser.email" maxlength="150">
       </div>
       <div class="contact-form__line contact-form__line--tel">
-        <label for="txtTel" class="contact-form__label">Telefone {{currentUser.tel}}</label>
+        <label for="txtTel" class="contact-form__label">Telefone</label>
         <the-mask id="txtTel" class="contact-form__input" v-model="currentUser.tel" v-bind:masked="true" type="tel" :mask="['(##) ####-####', '(##) #####-####']" maxlength="15" />
       </div>
     </div>
