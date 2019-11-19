@@ -22,8 +22,8 @@ import Header from '@/features/structure/Header/Header'
 import ContactEmpty from '@/features/contact/ContactEmpty/ContactEmpty'
 import ContactDataTable from '@/features/contact/ContactDataTable/ContactDataTable'
 import ContactForm from '@/features/contact/ContactForm/ContactForm'
-import Modal from '../../features/structure/Modal/Modal'
-import DeleteContact from '../../features/mdl-content/DeleteContact/DeleteContact'
+import Modal from '@/features/structure/Modal/Modal'
+import DeleteContact from '@/features/mdl-content/DeleteContact/DeleteContact'
 
 const NEW_USER = { key: null, name: '', email: '', tel: '' }
 
@@ -52,7 +52,7 @@ export default {
       return NEW_USER
     },
     handleShowModalNewContact () {
-      this.actualContact = this.getNewUser()
+      this.actualContact = NEW_USER
       this.showModalNewContact = true
     },
     handleHideModalNewContact () {

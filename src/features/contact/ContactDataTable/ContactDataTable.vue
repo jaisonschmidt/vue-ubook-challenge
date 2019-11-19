@@ -35,9 +35,6 @@
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex'
-
 export default {
   name: 'ContactDataTable',
   methods: {
@@ -49,9 +46,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'contacts'
-    ])
+    contacts () {
+      return this.$store.getters.contacts.filter(contact => {
+        return [contact.name, contact.email, contact.tel].join('|').toUpperCase().includes(this.$store.getters.filterText.toUpperCase())
+      })
+    }
   }
 }
 </script>

@@ -12,7 +12,8 @@ const vuexPersist = new VuexPersist({
 
 export default new Vuex.Store({
   state: {
-    contacts: []
+    contacts: [],
+    filterText: ''
   },
   mutations: {
     addContact (state, payload) {
@@ -24,7 +25,6 @@ export default new Vuex.Store({
       Object.assign(contact, payload)
     },
     deleteContact (state, payload) {
-      console.log('state deletecontact')
       let key = null
 
       // find contact key
@@ -35,6 +35,9 @@ export default new Vuex.Store({
       }
 
       state.contacts.splice(key, 1)
+    },
+    updateFilter (state, payload) {
+      state.filterText = payload
     }
   },
   actions: {
@@ -46,11 +49,17 @@ export default new Vuex.Store({
     },
     deleteContactAction (context, payload) {
       context.commit('deleteContact', payload)
+    },
+    updateFilterTextAction (context, payload) {
+      context.commit('updateFilter', payload)
     }
   },
   getters: {
     contacts (state) {
       return state.contacts.sort((a, b) => a.name.localeCompare(b.name))
+    },
+    filterText (state) {
+      return state.filterText
     }
   },
   plugins: [vuexPersist.plugin]

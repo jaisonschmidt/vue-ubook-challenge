@@ -16,8 +16,8 @@
       </div>
     </div><!-- .logo__wrapper -->
     <div class="search__wrapper">
-      <form class="search__form">
-        <input class="input input__search" type="search" name="" placeholder="Buscar...">
+      <form class="search__form" @submit="handleSubmitSearch">
+        <input class="input input__search" type="search" name="inputSearch" placeholder="Buscar..." @input="handleInputSearch">
         <button type="submit" class="search__btn-submit">
           <span class="icon-ic-search"></span>
         </button>
@@ -35,6 +35,13 @@ export default {
   methods: {
     handleClickNewContact () {
       this.$emit('openModalNewContact')
+    },
+    handleSubmitSearch (e) {
+      e.preventDefault()
+      this.$store.dispatch('updateFilterTextAction', e.target.inputSearch.value)
+    },
+    handleInputSearch (e) {
+      this.$store.dispatch('updateFilterTextAction', e.target.value)
     }
   }
 }

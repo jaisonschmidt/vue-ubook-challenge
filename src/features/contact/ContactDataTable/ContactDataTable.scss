@@ -45,7 +45,7 @@
         transition: background 2s ease-in 8s;
     }
     .list-enter {
-        background: yellow;
+        background-color: $bg-hover;
     }
     .letter {
         align-items: center;
