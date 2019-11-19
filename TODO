@@ -14,10 +14,10 @@ ModalContact
 
 - Salvar contato na store - ok
 - exibir o contato na grid em ordem alfabetica - ok
-- excluir o contato
--- necessário terminar a modal de exclusão
-- alterar o contato
-- salientar o novo registro
+- excluir o contato - ok
+-- necessário terminar a modal de exclusão - ok
+- alterar o contato - ok
+- salientar o novo registro - ok
 - filtrar registros
 - adicionar comentarios
 - melhorar código

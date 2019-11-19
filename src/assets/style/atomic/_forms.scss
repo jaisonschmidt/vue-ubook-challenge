@@ -1,13 +1,17 @@
 .input {
-  border: transparent;
-  @include border-radius(4px);
-  font-size: 1em;
-  outline: none;
-  padding: 0.5em 1em;
-  width: 100%;
+    border: transparent;
+    @include border-radius(4px);
+    font-size: 1em;
+    outline: none;
+    padding: 0.5em 1em;
+    width: 100%;
+    &.input__search {
+        background: $bg-strong;
+    }
+}
 
-  &.input__search {
-    background: $bg-strong;
-  }
-
+.form__action {
+    border-top: $bdr-input;
+    padding: 1rem;
+    text-align: right;
 }

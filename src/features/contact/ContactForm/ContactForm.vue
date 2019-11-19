@@ -17,7 +17,7 @@
         <input type="tel" id="txtTel" class="contact-form__input" v-model="currentUser.tel" maxlength="15">
       </div>
     </div>
-    <div class="contact-form__action">
+    <div class="form__action">
       <button type="button" class="btn btn__link" @click="handleCloseModalContact">Cancelar</button>
       <button type="submit" class="btn btn__form" v-bind:disabled="currentUser.name == '' && currentUser.email == '' && currentUser.tel == ''">Salvar</button>
     </div>

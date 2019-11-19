@@ -4,16 +4,14 @@
     <!-- showed when not have contacts -->
     <ContactEmpty v-if="contacts.length === 0" v-on:openModalNewContact="handleShowModalNewContact" />
     <!-- showed when have contacts -->
-    <ContactDataTable v-on:openModalUpdateContact="handleShowModalUpdateContact" v-else />
+    <ContactDataTable v-on:openModalUpdateContact="handleShowModalUpdateContact" v-on:confirmDeleteContact="handleOpenConfirmDeleteContact" v-else />
 
     <Modal v-bind:title="(actualContact.key === null) ? 'Criar novo contato' : 'Editar contato'" v-bind:show="showModalNewContact">
       <ContactForm v-on:closeModalNewContact="handleHideModalNewContact" v-bind:contact="actualContact" />
     </Modal>
 
-    <Modal title="Excluir contato" v-bind:show="false">
-      <div>
-        <div>Deseja realmente excluir o contato?</div>
-      </div>
+    <Modal title="Excluir contato" v-bind:show="showModalConfirmDeleteContact">
+      <DeleteContact v-on:deleteContactCancel="handleDeleteContactCancel" v-on:deleteContactConfirm="handleDeleteContactConfirm" />
     </Modal>
 
   </div>
@@ -25,6 +23,7 @@ import ContactEmpty from '@/features/contact/ContactEmpty/ContactEmpty'
 import ContactDataTable from '@/features/contact/ContactDataTable/ContactDataTable'
 import ContactForm from '@/features/contact/ContactForm/ContactForm'
 import Modal from '../../features/structure/Modal/Modal'
+import DeleteContact from '../../features/mdl-content/DeleteContact/DeleteContact'
 
 const NEW_USER = { key: null, name: '', email: '', tel: '' }
 
@@ -35,7 +34,8 @@ export default {
     Modal,
     ContactEmpty,
     ContactDataTable,
-    ContactForm
+    ContactForm,
+    DeleteContact
   },
   computed: {
     contacts () {
@@ -44,6 +44,7 @@ export default {
   },
   data: () => ({
     showModalNewContact: false,
+    showModalConfirmDeleteContact: false,
     actualContact: NEW_USER
   }),
   methods: {
@@ -60,6 +61,18 @@ export default {
     handleShowModalUpdateContact (contact) {
       this.actualContact = contact
       this.showModalNewContact = true
+    },
+    handleOpenConfirmDeleteContact (contact) {
+      this.actualContact = contact
+      this.showModalConfirmDeleteContact = true
+    },
+    handleDeleteContactCancel () {
+      this.actualContact = NEW_USER
+      this.showModalConfirmDeleteContact = false
+    },
+    handleDeleteContactConfirm () {
+      this.showModalConfirmDeleteContact = false
+      this.$store.dispatch('deleteContactAction', this.actualContact)
     }
   }
 }

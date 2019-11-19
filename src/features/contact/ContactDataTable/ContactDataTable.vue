@@ -11,24 +11,26 @@
         <div class="col-action"></div>
       </div>
     </div><!-- .header -->
-    <div class="contact-item" v-for="(contact, key) in contacts" :key="key">
-      <div class="col">
-        <div class="col-initial">
-          <span class="letter" :class="`letter--${contact.name[0].toUpperCase()}`">{{contact.name[0]}}</span>
+    <div is="transition-group" name="list">
+      <div class="contact-item" v-for="(contact) in contacts" :key="contact.key">
+        <div class="col">
+          <div class="col-initial">
+            <span class="letter" :class="`letter--${contact.name[0].toUpperCase()}`">{{contact.name[0]}}</span>
+          </div>
+          <div class="col-name">{{contact.name}}</div>
+          <div class="col-email">{{contact.email}}</div>
+          <div class="col-phone">{{contact.tel}}</div>
+          <div class="col-action">
+            <button type="button" class="btn__action" title="Editar contato" @click="() => handleClickUpdateContact(contact)">
+              <span class="icon-ic-edit"></span>
+            </button>
+            <button type="button" class="btn__action" title="Excluir contato" @click="() => handleClickDeleteContact(contact)">
+              <span class="icon-ic-delete"></span>
+            </button>
+          </div>
         </div>
-        <div class="col-name">{{contact.name}}</div>
-        <div class="col-email">{{contact.email}}</div>
-        <div class="col-phone">{{contact.tel}}</div>
-        <div class="col-action">
-          <button type="button" class="btn__action" title="Editar contato" @click="() => handleClickUpdateContact(key, {...contact})">
-            <span class="icon-ic-edit"></span>
-          </button>
-          <button type="button" class="btn__action" title="Excluir contato">
-            <span class="icon-ic-delete"></span>
-          </button>
-        </div>
-      </div>
-    </div><!-- .contact-item -->
+      </div><!-- .contact-item -->
+    </div>
   </div>
 </template>
 
@@ -39,8 +41,11 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'ContactDataTable',
   methods: {
-    handleClickUpdateContact (key, contact) {
-      this.$emit('openModalUpdateContact', { key, ...contact })
+    handleClickUpdateContact (contact) {
+      this.$emit('openModalUpdateContact', { ...contact })
+    },
+    handleClickDeleteContact (contact) {
+      this.$emit('confirmDeleteContact', { ...contact })
     }
   },
   computed: {
