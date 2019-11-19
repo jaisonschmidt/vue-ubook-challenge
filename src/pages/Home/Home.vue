@@ -5,15 +5,17 @@
       v-on:openModalNewContact="handleShowModalNewContact"
     />
     <!-- showed when not have contacts -->
+
     <ContactEmpty
       v-if="contacts.length === 0"
       v-on:openModalNewContact="handleShowModalNewContact"
     />
+
     <!-- showed when have contacts -->
     <ContactDataTable
       v-on:openModalUpdateContact="handleShowModalUpdateContact"
       v-on:confirmDeleteContact="handleOpenConfirmDeleteContact"
-      v-else
+      v-if="contacts.length > 0"
     />
 
     <Modal
