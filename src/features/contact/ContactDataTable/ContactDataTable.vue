@@ -11,19 +11,19 @@
         <div class="col-action"></div>
       </div>
     </div><!-- .header -->
-    <div class="contact-item">
+    <div class="contact-item" v-for="(contact, key) in contacts" :key="key">
       <div class="col">
         <div class="col-initial">
-          <span class="letter letter--A">A</span>
+          <span class="letter" :class="`letter--${contact.name[0].toUpperCase()}`">{{contact.name[0]}}</span>
         </div>
-        <div class="col-name">Alana</div>
-        <div class="col-email">jaisonschmidt@gmail.com</div>
-        <div class="col-phone">54 9 99776648</div>
+        <div class="col-name">{{contact.name}}</div>
+        <div class="col-email">{{contact.email}}</div>
+        <div class="col-phone">{{contact.tel}}</div>
         <div class="col-action">
-          <button type="button" class="btn__action">
+          <button type="button" class="btn__action" title="Editar contato" @click="() => handleClickUpdateContact(key, {...contact})">
             <span class="icon-ic-edit"></span>
           </button>
-          <button type="button" class="btn__action">
+          <button type="button" class="btn__action" title="Excluir contato">
             <span class="icon-ic-delete"></span>
           </button>
         </div>
@@ -33,7 +33,19 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'ContactDataTable'
+  name: 'ContactDataTable',
+  methods: {
+    handleClickUpdateContact (key, contact) {
+      this.$emit('openModalUpdateContact', { key, ...contact })
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'contacts'
+    ])
+  }
 }
 </script>

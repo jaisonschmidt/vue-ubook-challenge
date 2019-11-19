@@ -1,8 +1,12 @@
 .btn {
   align-items: center;
+  background: transparent;
+  border: transparent;
   @include border-radius(20px);
   display: inline-flex;
+  font-family: $ff-default;
   font-size: 14px;
+  font-weight: 500;
   outline: none;
   padding: 0.4em 1em;
 
@@ -24,4 +28,21 @@
       font-size: 1em;
     }
   }  
+
+  &.btn__link {
+    color: $btn-primary-cl;
+    font-size: 0.875em;
+  }
+
+  &.btn__form {
+    background: $btn-primary-cl;
+    border: solid 1px rgba(255, 255, 255, 0.16);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+    color: #ffffff;
+
+    &[disabled] {
+      opacity: 0.32;
+    }
+  }
+
 }

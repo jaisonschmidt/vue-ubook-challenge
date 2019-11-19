@@ -6,12 +6,7 @@
       <div class="modal__header">
         {{ title }}
       </div>
-      <div class="modal__body">
-        <slot />
-      </div>
-      <div class="modal__footer">
-        action
-      </div>
+      <slot />
     </div>
   </div>
 </template>

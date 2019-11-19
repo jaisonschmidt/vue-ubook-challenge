@@ -9,7 +9,7 @@
       Nenhum contato foi criado ainda.
     </div>
     <div>
-      <button class="btn btn--lg btn__add">
+      <button class="btn btn--lg btn__add" @click="handleClickNewContact">
         <span class="btn__ico">
           <span class="icon__el icon-ic-plus"></span>
         </span>
@@ -21,6 +21,11 @@
 
 <script>
 export default {
-  name: 'ContactEmpty'
+  name: 'ContactEmpty',
+  methods: {
+    handleClickNewContact () {
+      this.$emit('openModalNewContact')
+    }
+  }
 }
 </script>

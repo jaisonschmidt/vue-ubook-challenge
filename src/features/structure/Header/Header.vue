@@ -6,8 +6,8 @@
       <div>
         <img src="../../../assets/imgs/ic-logo.svg" class="header__logo" alt="UBook Logo">
       </div>
-      <div>
-        <button class="btn btn__add">
+      <div v-if="showBtnCreateContact">
+        <button class="btn btn__add" @click="handleClickNewContact">
           <span class="btn__ico">
             <span class="icon__el icon-ic-plus"></span>
           </span>
@@ -28,6 +28,14 @@
 
 <script>
 export default {
-  name: 'Header'
+  name: 'Header',
+  props: {
+    showBtnCreateContact: Boolean
+  },
+  methods: {
+    handleClickNewContact () {
+      this.$emit('openModalNewContact')
+    }
+  }
 }
 </script>

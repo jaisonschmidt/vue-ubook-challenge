@@ -10,7 +10,14 @@ ContactForm
 - novo contato, atualizar contato - ok
 
 ModalContact
-- Exibe o componente ContactForm no formato de modal
+- Exibe o componente ContactForm no formato de modal - ok
 
-ModalConfirmDelete
-- Modal que confirma deleção de registro
+- Salvar contato na store - ok
+- exibir o contato na grid em ordem alfabetica - ok
+- excluir o contato
+-- necessário terminar a modal de exclusão
+- alterar o contato
+- salientar o novo registro
+- filtrar registros
+- adicionar comentarios
+- melhorar código

@@ -52,6 +52,7 @@
 
   .letter {
     align-items: center;
+    background-color: #90d26c;
     @include border-radius(50%);
     color: #ffffff;
     display: inline-flex;
@@ -60,7 +61,7 @@
     width: 1.5rem;
   }
 
-  .letter--A, .letter--I, .letter--Q, .letter--Y, .letter--DEF {
+  .letter--A, .letter--I, .letter--Q, .letter--Y {
     background-color: #fa8d68;
   }
 

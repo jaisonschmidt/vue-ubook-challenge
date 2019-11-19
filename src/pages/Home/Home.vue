@@ -1,20 +1,32 @@
 <template>
   <div>
-    <Header />
-    <ContactEmpty />
-    <ContactDataTable />
-    <Modal title="Criar novo contato" v-bind:show="false">
-      <ContactForm />
+    <Header v-bind:showBtnCreateContact="(contacts.length === 0) ? false : true" v-on:openModalNewContact="handleShowModalNewContact"  />
+    <!-- showed when not have contacts -->
+    <ContactEmpty v-if="contacts.length === 0" v-on:openModalNewContact="handleShowModalNewContact" />
+    <!-- showed when have contacts -->
+    <ContactDataTable v-on:openModalUpdateContact="handleShowModalUpdateContact" v-else />
+
+    <Modal v-bind:title="(actualContact.key === null) ? 'Criar novo contato' : 'Editar contato'" v-bind:show="showModalNewContact">
+      <ContactForm v-on:closeModalNewContact="handleHideModalNewContact" v-bind:contact="actualContact" />
     </Modal>
+
+    <Modal title="Excluir contato" v-bind:show="false">
+      <div>
+        <div>Deseja realmente excluir o contato?</div>
+      </div>
+    </Modal>
+
   </div>
 </template>
 
 <script>
 import Header from '@/features/structure/Header/Header'
-import Modal from '../../features/structure/Modal/Modal'
 import ContactEmpty from '@/features/contact/ContactEmpty/ContactEmpty'
 import ContactDataTable from '@/features/contact/ContactDataTable/ContactDataTable'
 import ContactForm from '@/features/contact/ContactForm/ContactForm'
+import Modal from '../../features/structure/Modal/Modal'
+
+const NEW_USER = { key: null, name: '', email: '', tel: '' }
 
 export default {
   name: 'Home',
@@ -24,6 +36,31 @@ export default {
     ContactEmpty,
     ContactDataTable,
     ContactForm
+  },
+  computed: {
+    contacts () {
+      return this.$store.getters.contacts
+    }
+  },
+  data: () => ({
+    showModalNewContact: false,
+    actualContact: NEW_USER
+  }),
+  methods: {
+    getNewUser () {
+      return NEW_USER
+    },
+    handleShowModalNewContact () {
+      this.actualContact = this.getNewUser()
+      this.showModalNewContact = true
+    },
+    handleHideModalNewContact () {
+      this.showModalNewContact = false
+    },
+    handleShowModalUpdateContact (contact) {
+      this.actualContact = contact
+      this.showModalNewContact = true
+    }
   }
 }
 </script>

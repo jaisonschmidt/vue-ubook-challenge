@@ -1,5 +1,5 @@
 .contact-form {
-  .contact-form__line {
+  &__line {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
@@ -7,9 +7,24 @@
     &:last-of-type {
       margin-bottom: 0;
     }
+
+    &--tel {
+      max-width: 8rem;
+    }
+
   }
 
-  .contact-form__input {
+  &__body {
+    padding: 1.25rem 1.5rem 1.375em 1.5rem;
+  }
+
+  &__action {
+    border-top: $bdr-input;
+    padding: 1rem;
+    text-align: right;
+  }
+
+  &__input {
     border: $bdr-input;
     @include border-radius(4px);
     background-color: #ffffff;
@@ -17,7 +32,7 @@
     padding: 9px 10px;
   }
 
-  .contact-form__label {
+  &__label {
     font-size: 0.875em;
     margin-bottom: 0.25rem;
   }
