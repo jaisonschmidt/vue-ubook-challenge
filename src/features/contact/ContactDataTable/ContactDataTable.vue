@@ -2,7 +2,7 @@
 
 <template>
   <div class="contact-data-table">
-    <div class="header">
+    <div class="header" v-if="contacts.length > 0">
       <div class="col">
         <div class="col-initial"></div>
         <div class="col-name">Contatos</div>
@@ -12,7 +12,7 @@
       </div>
     </div>
     <!-- .header -->
-    <div class="table-body" is="transition-group" name="list">
+    <div class="table-body" is="transition-group" name="list" key="transition-table">
       <div class="contact-item" v-for="contact in contacts" :key="contact.key">
         <div class="col">
           <div class="col-initial">

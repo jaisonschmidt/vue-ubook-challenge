@@ -15,7 +15,6 @@
     <ContactDataTable
       v-on:openModalUpdateContact="handleShowModalUpdateContact"
       v-on:confirmDeleteContact="handleOpenConfirmDeleteContact"
-      v-if="contacts.length > 0"
     />
 
     <Modal
